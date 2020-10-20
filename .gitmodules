@@ -1,0 +1,6 @@
+[submodule "shoploc-server-pa"]
+	path = shoploc-server-pa
+	url = https://github.com/PartnerAssocies/shoploc-server-pa.git
+[submodule "shoploc-web-pa"]
+	path = shoploc-web-pa
+	url = https://github.com/PartnerAssocies/shoploc-web-pa.git
