@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: shoploc-db
+      MYSQL_USER: shoploc
+      MYSQL_PASSWORD: shoploc
+    volumes:
+        - db-data:/var/lib/mysql/data
+
+  api:
+    build: ./shoploc-server-pa
+    container_name: shoploc-server-pa
+    restart: always
+    ports:
+      - 8080:8080
+    links:
+      - db
+      
+  client:
+    build: ./shoploc-web-pa
+    container_name: shoploc-web-pa
+    restart: always
+    ports:
+      - 4200:4200
+    links:
+      - api
